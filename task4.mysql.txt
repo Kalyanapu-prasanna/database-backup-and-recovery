@@ -1,0 +1,73 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 27
+Server version: 8.0.41 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use prasanna;
+Database changed
+mysql> CREATE DATABASE backup_demo; USE backup_demo;
+ERROR 1007 (HY000): Can't create database 'backup_demo'; database exists
+Database changed
+mysql> CREATE DATABASE backup_demo; USE backup_demo;
+ERROR 1007 (HY000): Can't create database 'backup_demo'; database exists
+Database changed
+mysql> CREATE DATABASE backup_demo;USE backup_demo;
+ERROR 1007 (HY000): Can't create database 'backup_demo'; database exists
+Database changed
+mysql> CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY,name VARCHAR(50),email VARCHAR(100));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO users (name, email) VALUES ('Alice', 'alice@example.com'),('Bob', 'bob@example.com');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM users;
++----+-------+-------------------+
+| id | name  | email             |
++----+-------+-------------------+
+|  1 | Alice | alice@example.com |
+|  2 | Bob   | bob@example.com   |
++----+-------+-------------------+
+2 rows in set (0.00 sec)
+
+mysql> mysqldump -u root -p backup_demo > backup_demo.sql
+    -> DROP DATABASE backup_demo;
+
+mysql> DROP DATABASE backup_demo;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| demodb             |
+| ecommercedb        |
+| information_schema |
+| lohi               |
+| my_database        |
+| mysql              |
+| nominalrolldb      |
+| performance_schema |
+| prasanna           |
+| sakila             |
+| sys                |
+| testdb             |
+| usrdb              |
+| world              |
++--------------------+
+14 rows in set (0.01 sec)
+
+
+Database changed
+mysql> CREATE DATABASE backup_demo; USE backup_demo;
+ERROR 1007 (HY000): Can't create database 'backup_demo'; database exists
+Database changed
+mysql>
